@@ -8,17 +8,15 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://event-backend-q46x.onrender.com/api/auth/google/callback"
+      callbackURL: "https://event-backend-q46x.onrender.com/api/auth/google/callback", // Must match Google Console
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
-        // Check if the user already exists
         let user = await User.findOne({ googleId: profile.id });
 
         if (user) {
-          return done(null, user); // User exists, return the user
+          return done(null, user); // User exists
         } else {
-          // Create a new user
           user = new User({
             username: profile.displayName,
             email: profile.emails[0].value,
@@ -35,6 +33,7 @@ passport.use(
     }
   )
 );
+
 
 // Serialize user for sessions
 passport.serializeUser((user, done) => {
