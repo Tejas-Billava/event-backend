@@ -9,6 +9,7 @@ const ContactUs = require("./models/ContactUs");
 const Venue = require("./models/Venue");
 const OwnEvent = require("./models/OwnEvent");
 const connectDB = require("./db");
+require("dotenv").config();
 
 const session = require("express-session"); // Add express-session
 
@@ -202,48 +203,8 @@ app.post("/api/contact", async (req, res) => {
   }
 });
 
-// //own event
-// app.post("/api/create-event/create-event", async (req, res) => {
-//   const {
-//     title,
-//     description,
-//     date,
-//     hour,
-//     minute,
-//     duration,
-//     location,
-//     files,
-//     notify,
-//   } = req.body;
-
-//   // Create a new event document
-//   const newEvent = new OwnEvent({
-//     title,
-//     description,
-//     date,
-//     hour,
-//     minute,
-//     duration,
-//     location,
-//     files,
-//     notify,
-//   });
-
-//   try {
-//     // Save event to database
-//     await newEvent.save();
-//     res
-//       .status(200)
-//       .json({ status: "success", message: "Event created successfully!" });
-//   } catch (error) {
-//     console.error(error);
-//     res
-//       .status(500)
-//       .json({ status: "error", message: "Failed to create the event." });
-//   }
-// });
-
-const PORT = process.env.port || 5000;
+const PORT = 5000;
+console.log(PORT);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
