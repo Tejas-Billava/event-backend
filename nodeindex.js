@@ -116,25 +116,19 @@ app.get(
 // Google callback route
 app.get(
   "/api/auth/google/callback",
-
-  passport.authenticate("google", { failureRedirect: "/login" }),
+  passport.authenticate("google", { failureRedirect: "/login" }),  // Redirect if authentication fails
   (req, res) => {
     const token = jwt.sign(
       { id: req.user._id, username: req.user.username, email: req.user.email },
-      JWT_SECRET,
+      JWT_SECRET, // Secret for JWT token
       { expiresIn: "1h" }
     );
 
-    // res.status(200).json({
-    //   token,
-    //   username: req.user.username,
-    //   message: "Google login successful",
-    // });
-    res.redirect(
-      `https://event-frontend-q46x.onrender.com/?token=${token}&username=${req.user.username}`
-    );
+    // Redirect to frontend with token as a query parameter
+    res.redirect(`https://event-frontend-q46x.onrender.com/?token=${token}&username=${req.user.username}`);
   }
 );
+
 
 // Venue fetch route
 app.get("/api/venues", async (req, res) => {
