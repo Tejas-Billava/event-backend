@@ -2,13 +2,13 @@ const passport = require("passport");
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const User = require("../models/User");
 require("dotenv").config();
+
 passport.use(
   new GoogleStrategy(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://event-backend-q46x.onrender.com/api/auth/google/callback
-", // This URL must match the redirect URI in Google Console
+      callbackURL: "https://event-backend-q46x.onrender.com/api/auth/google/callback", 
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
@@ -36,10 +36,12 @@ passport.use(
   )
 );
 
+// Serialize user for sessions
 passport.serializeUser((user, done) => {
   done(null, user.id); // Serialize the user ID
 });
 
+// Deserialize user from session
 passport.deserializeUser(async (id, done) => {
   try {
     const user = await User.findById(id);
