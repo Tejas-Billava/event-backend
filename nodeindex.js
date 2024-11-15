@@ -131,7 +131,7 @@ app.get(
     //   message: "Google login successful",
     // });
     res.redirect(
-      `http://localhost:3000/?token=${token}&username=${req.user.username}`
+      `https://event-frontend-q46x.onrender.com/?token=${token}&username=${req.user.username}`
     );
   }
 );
