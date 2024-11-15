@@ -17,7 +17,6 @@ const passport = require("passport");
 require("./config/passport"); // Import the Passport configuration
 
 const app = express();
-const cors = require("cors");
 app.use(
   cors({
     origin: "https://event-frontend-q46x.onrender.com", // Your frontend URL
