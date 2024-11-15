@@ -1,0 +1,40 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Editor settings and configuration
+.vscode/
+.idea/
+.DS_Store
+
+# Testing
+coverage/
+
+# Temporary files and caches
+.cache/
+*.lock
+*.tmp
+
+# System files
+Thumbs.db
+*.swp
+
+# Optional npm package files
+*.tgz
+
+# React Native
+.expo/
