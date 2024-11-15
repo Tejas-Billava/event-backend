@@ -39,7 +39,9 @@
   "scripts": {
     "build": "echo \"No build step required\"",
     "start": "node nodeindex.js",
-    "dev": "nodemon nodeindex.js"
+    "dev": "nodemon nodeindex.js",
+    "postinstall": "npm install"
+
   },
   "eslintConfig": {
     "extends": [
