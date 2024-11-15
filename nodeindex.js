@@ -8,7 +8,7 @@ const BookNow = require("./models/BookNow");
 const ContactUs = require("./models/ContactUs");
 const Venue = require("./models/Venue");
 const OwnEvent = require("./models/OwnEvent");
-const connectDB = require("./db");
+const connectDB = require("./dB");
 require("dotenv").config();
 
 const session = require("express-session"); // Add express-session
