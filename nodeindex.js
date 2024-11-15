@@ -17,14 +17,14 @@ const passport = require("passport");
 require("./config/passport"); // Import the Passport configuration
 
 const app = express();
-
 app.use(
   cors({
-    origin: "http://localhost:3000", // Your frontend URL
+    origin: "https://event-frontend-q46x.onrender.com", // Deployed frontend URL
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true, // This is essential to allow cookies to be sent from frontend
+    credentials: true,
   })
 );
+
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(
