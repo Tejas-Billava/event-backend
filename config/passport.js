@@ -8,7 +8,7 @@ passport.use(
     {
       clientID: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      callbackURL: "https://event-backend-q46x.onrender.com/api/auth/google/callback", // Must match Google Console
+      callbackURL: "https://event-backend-lj7u.onrender.com/api/auth/google/callback", // Must match Google Console
     },
     async (accessToken, refreshToken, profile, done) => {
       try {
